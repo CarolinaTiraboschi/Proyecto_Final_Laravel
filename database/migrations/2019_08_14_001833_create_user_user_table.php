@@ -19,8 +19,8 @@ class CreateUserUserTable extends Migration
             $table->unsignedBigInteger('follower_id');
             $table->foreign('follower_id')->references('id')->on('users');
             $table->unsignedBigInteger('followee_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            
+            $table->foreign('followee_id')->references('id')->on('users');
+
         });
     }
 
