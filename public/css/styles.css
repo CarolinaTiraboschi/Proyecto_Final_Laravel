@@ -183,6 +183,8 @@ body{
 
  .formulario{
 	 margin: 0 auto;
+	 box-sizing: border-box;
+	 display: flex;
 
  }
 
@@ -205,6 +207,12 @@ body{
 .foot a {
 	color:white;
 	text-align: center;
+	font-weight: bold;
+}
+
+.invalid {
+	display: none;
+	color: rgb(113, 244, 164);
 	font-weight: bold;
 }
 
