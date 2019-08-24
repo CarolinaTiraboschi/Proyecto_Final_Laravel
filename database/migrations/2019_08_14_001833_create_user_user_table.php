@@ -14,7 +14,7 @@ class CreateUserUserTable extends Migration
     public function up()
     {
         Schema::create('user_user', function (Blueprint $table) {
-            $table->increments('id');
+            $table->Bigincrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('follower_id');
             $table->foreign('follower_id')->references('id')->on('users');
