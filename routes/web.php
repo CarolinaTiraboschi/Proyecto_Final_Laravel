@@ -21,8 +21,8 @@ Route::get('/index', function () {
 });
 
 //Route::get('users/register', function () {
-    return view('users/register');
-});
+//    return view('users/register');
+//});
 
 //Route::post('users', 'UserController@newUser');
 
