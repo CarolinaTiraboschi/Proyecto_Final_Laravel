@@ -20,14 +20,18 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/register', function () {
-    return view('register');
+//Route::get('users/register', function () {
+    return view('users/register');
 });
 
-Route::post('/register', 'UserController@newUser');
+//Route::post('users', 'UserController@newUser');
 
 Route::get('/profile', function () {
     return view('profile');
 });
 
 Route::get('/profile/{id}', 'UserController@profile');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

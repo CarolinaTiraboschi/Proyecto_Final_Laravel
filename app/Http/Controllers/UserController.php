@@ -31,7 +31,7 @@ class UserController extends Controller
       'name' => 'required | max:30',
       'email' => 'required | email',
       'country' => 'required',
-      'pass' => 'required',
+      'password' => 'required',
       'pass-repeat'=> 'required',
     ], [
       // input_name.rule => message
@@ -61,7 +61,7 @@ class UserController extends Controller
     }
 
     $user->save();
-    return redirect("/register");
+    return redirect("users/register");
   }
 
 

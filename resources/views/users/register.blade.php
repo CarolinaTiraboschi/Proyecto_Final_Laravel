@@ -12,7 +12,7 @@
       <h3>EL ENCUENTRO FORTUITO </h3>
     </div>
 
-<form action="/register" method="post" enctype="multipart/form-data">
+<form action="/users" method="post" enctype="multipart/form-data">
   @csrf
   <h2 class= "registrar" >REGISTRARME</h2>
 
@@ -30,7 +30,7 @@
       <div class="col-12">
         <div class="form-group">
           <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario" value="{{ old('username') }}">
-          @error ('title')
+          @error ('username')
             <i style="color: red;"> {{ $errors->first('username') }}</i>
           @enderror
           <div class="invalid">
