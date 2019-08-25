@@ -1,11 +1,10 @@
 @extends('template')
-@section('pageTitle', ''Perfil de ' . $theUser->getUsername()')
 
+@section('pageTitle', 'Perfil de {{$user}}')
 
 @section('mainContent')
 
-<?php $username="Marina";
-$section='Profile'; ?>
+<?php $section='Profile'; ?>
 
 <div class="container profile_general">
 
@@ -16,7 +15,7 @@ $section='Profile'; ?>
       </div>
     </div>
     <div class="col-12 profile_username">
-      <h3><?= $username ?></h3>
+      <h3>{{ $theUser->getUsername() }}</h3>
     </div>
     <div class="col-12 profile_username">
       <a href="#">Upload Avatar</a><br>

@@ -13,7 +13,17 @@
     </div>
 
 <form action="/register" method="post" enctype="multipart/form-data">
+  @csrf
   <h2 class= "registrar" >REGISTRARME</h2>
+
+  {{-- Errores si los hubiera --}}
+@if (count($errors))
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li class="text-danger"> {{ $error }} </li>
+    @endforeach
+  </ul>
+@endif
 
 
     <div class="row formulario ">
@@ -21,15 +31,20 @@
         <div class="form-group">
           <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario" value="{{ old('username') }}">
           @error ('title')
-            <i style="color: red;"> {{ $errors->first('title') }}</i>
+            <i style="color: red;"> {{ $errors->first('username') }}</i>
           @enderror
+          <div class="invalid">
+            <!-- Mensaje de error -->
+          </div>
         </div>
       </div>
 
       <div class="col-6">
             <div class="form-group">
               <input type="text" name="name" class="form-control" placeholder="Nombre Completo"value="{{ old('name') }}">
-
+              <div class="invalid">
+                <!-- Mensaje de error -->
+              </div>
             </div>
       </div>
 
@@ -57,14 +72,18 @@
       <div class="col-6">
             <div class="form-group">
               <input type="password" name="pass" class="form-control" placeholder="Contraseña">
-
+              <div class="invalid">
+                <!-- Mensaje de error -->
+              </div>
             </div>
       </div>
 
       <div class="col-6">
             <div class="form-group">
               <input type="password" name="pass-repeat" class="form-control" placeholder="Repita su contraseña">
-
+              <div class="invalid">
+                <!-- Mensaje de error -->
+              </div>
             </div>
       </div>
 
@@ -92,6 +111,7 @@
           </div>
         </div>
       </div>
+    </form>
 
       <script src="/js/jquery-3.4.1.min.js"></script>
   	  <script src="/js/bootstrap.min.js"></script>

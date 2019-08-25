@@ -23,6 +23,10 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::post('/register', 'UsersController@newUser');
+
 Route::get('/profile', function () {
     return view('profile');
 });
+
+Route::get('/profile/{id}', 'UserController@profile');
