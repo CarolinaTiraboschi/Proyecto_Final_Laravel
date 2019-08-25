@@ -1,5 +1,6 @@
 <?php
-
+use App\User;
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +24,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post('/register', 'UsersController@newUser');
+Route::post('/register', 'UserController@newUser');
 
 Route::get('/profile', function () {
     return view('profile');

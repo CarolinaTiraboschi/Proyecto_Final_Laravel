@@ -36,9 +36,8 @@ class UserController extends Controller
     ], [
       // input_name.rule => message
       'country.required' => 'El campo País es obligatorio',
-      // 'rating.required' => 'El campo rating es obligatorio',
       'required' => 'El campo :attribute es obligatorio',
-      'title.max' => 'El :attribute debe contener máximo :max carácteres',
+      'max' => 'El :attribute debe contener máximo :max carácteres',
       'email'=>'El campo debe contener un email válido ej: user@syzygy.com'
     ]);
 
@@ -62,7 +61,7 @@ class UserController extends Controller
     }
 
     $user->save();
-    return redirect("register");
+    return redirect("/register");
   }
 
 

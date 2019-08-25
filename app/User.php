@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = ['username','full_name','email','password','country','avatar'];
 
     /**
      * The attributes that should be hidden for arrays.
