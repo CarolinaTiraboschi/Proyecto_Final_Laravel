@@ -13,7 +13,7 @@ use App\Post;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('parallax');
 });
 
 Route::get('/index', function () {
