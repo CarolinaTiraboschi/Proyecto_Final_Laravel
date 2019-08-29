@@ -51,7 +51,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            'pass-repeat'=>['required', 'string', 'min:8', 'same:password'],
             'full_name' => ['required | max:30'],
         ]);
     }
@@ -64,12 +65,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $request=request();
+      $imagen = $request->file('avatar');// El value del atributo name del input file
+
+      if ($imagen) {
+        // Armo un nombre único para este archivo
+        $imagenFinal = uniqid("img_") . "." . $imagen->extension();
+
+        // Subo el archivo en la carpeta elegida
+        $imagen->storePubliclyAs("public/avatars", $imagenFinal);}
+
         return User::create([
             'username' => $data['name'],
             'full_name'=> $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'country' => $data['country'],
+              // Le asigno la imagen a la película que guardamos
+            'avatar' => $imagenFinal,
+
         ]);
     }
 }

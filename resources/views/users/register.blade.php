@@ -113,10 +113,10 @@
       </div>
     </form>
 
-      <script src="/js/jquery-3.4.1.min.js"></script>
+      <!--<script src="/js/jquery-3.4.1.min.js"></script>
   	  <script src="/js/bootstrap.min.js"></script>
     	<script src="/js/getCountries.js"></script>
-      <script src="/js/registerValidate.js"></script>
+      <script src="/js/registerValidate.js"></script>-->
 
     <style>
     @media (min-width: 600px) {
