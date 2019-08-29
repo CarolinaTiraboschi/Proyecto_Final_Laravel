@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-12 profile_username">
-      <h3>{{ $theUser->getUsername() }}</h3>
+      <h3>{{ $user->getUsername() }}</h3>
     </div>
     <div class="col-12 profile_username">
       <a href="#">Upload Avatar</a><br>

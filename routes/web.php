@@ -12,14 +12,17 @@ use App\Post;
 |
 */
 
-Route::get('/', function () {
-    return view('parallax');
+Route::get('/parallax', function() {
+  return view('parallax');
 });
 
 Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/profiletrial', function () {
+    return view('profiletrial');
+});
 //Route::get('users/register', function () {
 //    return view('users/register');
 //});
