@@ -108,21 +108,3 @@ losCampos.forEach(function (unCampo) {
 		})
 	}
 });
-
-
-/* Valido cuando se envíe el formulario
-elFormu.addEventListener('submit', function (event) {
-	losCampos.forEach(function (unCampo) {
-		var valorFinalDelCampo = unCampo.value.trim();
-
-		if (valorFinalDelCampo === '') {
-			errores[unCampo.name] = true;
-		}
-	});
-
-	if (Object.keys(errores).length > 0) {
-		alert('Campos vacíos');
-		console.log(errores);
-		event.preventDefault();
-	}
-})*/
