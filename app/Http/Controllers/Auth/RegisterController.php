@@ -84,6 +84,7 @@ class RegisterController extends Controller
               // Le asigno la imagen a la película que guardamos
             'avatar' => $imagenFinal,
 
+
         ]);
     }
 }

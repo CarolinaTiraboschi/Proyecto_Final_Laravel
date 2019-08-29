@@ -28,7 +28,7 @@ losCampos.forEach(function (unCampo) {
 	unCampo.addEventListener('blur', function () {
 		// capturo el value del campo
 		var valorDelCampo = unCampo.value.trim();
-		
+
 		// valido si el campo está vacío
 		if (valorDelCampo === '') {
 			this.classList.add('is-invalid'); // agrego clase is-invalid
@@ -110,7 +110,7 @@ losCampos.forEach(function (unCampo) {
 });
 
 
-// Valido cuando se envíe el formulario
+/* Valido cuando se envíe el formulario
 elFormu.addEventListener('submit', function (event) {
 	losCampos.forEach(function (unCampo) {
 		var valorFinalDelCampo = unCampo.value.trim();
@@ -125,4 +125,4 @@ elFormu.addEventListener('submit', function (event) {
 		console.log(errores);
 		event.preventDefault();
 	}
-})
+})*/
