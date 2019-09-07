@@ -17,15 +17,12 @@ class UserController extends Controller
 
   }
 
-  public function posts($user_id){
-    $posts= Post::find($user_id);
-    return view('allPost', compact('posts'));
-  }
 
 
-  public function newUser(Request $form){
 
-  /*  $form->validate([
+  /*  public function newUser(Request $form){
+
+  $form->validate([
       // input_name => rules,
       'username' => 'required | max:15',
       'name' => 'required | max:30',
