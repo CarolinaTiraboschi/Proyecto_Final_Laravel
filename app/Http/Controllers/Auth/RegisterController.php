@@ -54,7 +54,13 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'pass-repeat'=>['required', 'string', 'min:8', 'same:password'],
             'full_name' => ['required | max:30'],
-        ]);
+        ],[
+
+        'country.required' => 'El campo País es obligatorio',
+        'required' => 'El campo :attribute es obligatorio',
+        'max' => 'El :attribute debe contener máximo :max carácteres',
+        'email'=>'El campo debe contener un email válido ej: user@syzygy.com'
+      ]);
     }
 
     /**

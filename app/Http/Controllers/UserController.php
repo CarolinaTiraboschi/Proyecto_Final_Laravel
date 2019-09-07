@@ -25,7 +25,7 @@ class UserController extends Controller
 
   public function newUser(Request $form){
 
-    $form->validate([
+  /*  $form->validate([
       // input_name => rules,
       'username' => 'required | max:15',
       'name' => 'required | max:30',
@@ -62,7 +62,7 @@ class UserController extends Controller
 
     $user->save();
     return redirect("users/register");
-  }
+  }*/
 
 
 }

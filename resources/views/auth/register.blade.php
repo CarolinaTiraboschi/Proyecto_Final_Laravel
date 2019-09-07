@@ -44,6 +44,9 @@
                                   <div class="col-6">
                                         <div class="form-group">
                                           <input type="text" name="name" class="form-control" placeholder="Nombre Completo"value="{{ old('name') }}">
+                                          @error ('username')
+                                            <i style="color: red;"> {{ $errors->first('Nombre completo') }}</i>
+                                          @enderror
                                           <div class="invalid">
                                             <!-- Mensaje de error -->
                                           </div>
