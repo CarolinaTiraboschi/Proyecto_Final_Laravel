@@ -3,7 +3,7 @@
 
 /*Import de google fonts para el tipo de letra de la web Noto Serif*/
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+
 /*Font awesome para iconos*/
 @import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 
@@ -152,7 +152,7 @@ body{
 	 font-size: 3vw;
 	 margin-top: 0;
 	 margin-bottom: 7vh;
-	 text-align: right;
+	 text-align: right
 	 font-weight: bold;
 
 
@@ -253,6 +253,7 @@ body{
 
 .profile_interests_section{
 	margin-bottom:30px;
+	box-sizing: border-box;
 }
 
 .profile_interests_pastillas{
@@ -268,6 +269,26 @@ body{
 	 border-color: #2c7997;
 	 font-size: 12px;
  }
+
+ .category_section{
+	 box-sizing: border-box;
+ }
+
+ /*CSS de posts*/
+
+ .posts_section{
+	   font-family: 'Noto Serif', serif;
+		 box-sizing: border-box;
+}
+
+.posts_container{
+font-family: 'Noto Serif', serif;
+margin-top: 15px;
+margin-bottom: 15px;
+text-align:justify;
+display: flex;
+}
+
 
  /*Empieza CSS de Footer*/
 .footer{
