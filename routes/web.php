@@ -37,3 +37,6 @@ Route::get('/allPost/{id}', 'PostsController@posts');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/createPost', 'PostsController@create');
+Route::post('/createPost', 'PostsController@newPost');

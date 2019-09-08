@@ -7,7 +7,7 @@
 <br>
 <div class="container profile_general">
 <div class="col-12 profile_username">
-  <h3 style="text-align:center;">Todos los escritos de {{ $theUser }}</h3>
+  <h3 style=text-align:center>Todos los escritos de {{ $theUser->username }}</h3>
 </div>
 
 <div class= "row justify-content-center profile_posts_section">
@@ -16,7 +16,11 @@
     <div class="card-text">
       <div class="card-header" style="text-align:center; font-weight:bold;">{{$post->title}}</div> <br>
       <div class="card-body">
-        <p class="card-text">{{$post->paragraph}}</p> <br>
+        <p class="card-text">
+          @php
+            $text= "$post->paragraph";
+             echo(str_limit($text, 500));
+          @endphp</p> <br>
         <a href="#" class="btn btn-primary">Leer más</a>
 
   <div class="row category_section">
@@ -39,5 +43,8 @@
   @endforeach
   </div>
 </div>
+<a href="/profile/{{$theUser->id}}">Volver al perfil de {{ $theUser ->username }}</a>
 </div>
+
+
 @endsection

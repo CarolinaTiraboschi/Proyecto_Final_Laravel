@@ -82,7 +82,7 @@ class RegisterController extends Controller
         $imagen->storePubliclyAs("public/avatars", $imagenFinal);}
 
         return User::create([
-            'username' => $data['name'],
+            'username' => $data['username'],
             'full_name'=> $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
