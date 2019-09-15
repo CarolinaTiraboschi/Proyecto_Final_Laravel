@@ -1,7 +1,6 @@
 @extends('template')
 @section('pageTitle', 'Register')
 
-
 @section('mainContent')
 @extends('layouts.app')
 <div class="container">

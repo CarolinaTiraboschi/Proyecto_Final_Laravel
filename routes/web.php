@@ -34,9 +34,13 @@ Route::get('/profile/{id}', 'UserController@profile');
 
 Route::get('/allPost/{id}', 'PostsController@posts');
 
+Route::get('/viewPost/{id}', 'PostsController@view');
+Route::delete('/viewPost/{id}/delete', 'PostsController@delete');
+Route::post('/viewPost/{id}', 'CommentController@newComment')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/createPost', 'PostsController@create');
-Route::post('/createPost', 'PostsController@newPost');
+Route::get('/createPost', 'PostsController@create')->middleware('auth');
+Route::post('/createPost', 'PostsController@newPost')->middleware('auth');

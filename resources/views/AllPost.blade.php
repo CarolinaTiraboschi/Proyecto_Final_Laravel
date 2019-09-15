@@ -1,6 +1,10 @@
 
 @extends('template')
-@section('pageTitle', 'Todos los post de')
+
+@php
+  $user= $theUser ->username;
+@endphp
+@section('pageTitle', 'Todos los post de ' . $user)
 
 
 @section('mainContent')
@@ -21,7 +25,17 @@
             $text= "$post->paragraph";
              echo(str_limit($text, 500));
           @endphp</p> <br>
-        <a href="#" class="btn btn-primary">Leer más</a>
+          <div class="button-container" style="display:flex">
+        <a href="/viewPost/{{$post->id}}" class="btn btn-primary" style= "margin-right:10px">Leer más</a>
+        @if ($post->user_id==Auth::id())
+          <form action="/viewPost/{{$post->id}}/delete" method="post">
+            @csrf
+              {{ method_field('delete')}}
+              <input type="submit" class="btn btn-danger" style= "margin-right:10px" value="Eliminar Post"></input>
+          </form>
+
+        @endif
+      </div>
 
   <div class="row category_section">
           @foreach ($post->categories as $category)
@@ -29,7 +43,7 @@
             @endphp
           @endforeach
           @foreach ($categories as $category_name)
-              <div class="col-4 profile_interests_pastillas">
+              <div class="col-md-4 profile_interests_pastillas">
             <div class="interest" style="text-align:center;"><span>{{$category_name}}</span></div>
           </div>
             @php

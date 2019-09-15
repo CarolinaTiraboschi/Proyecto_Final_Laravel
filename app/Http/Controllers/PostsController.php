@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Category;
 use App\Post;
+use App\Comment;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -21,10 +23,21 @@ class PostsController extends Controller
       return view('AllPost', compact('posts', 'theUser'));
     }
 
+    public function view($id){
+      $post=Post::find($id);
+      $theUser=User::find($post->user_id);
+      $comments=Comment::where('post_id', $id)->get();
+
+
+      return view('posts/viewPost', compact('post', 'theUser','comments'));
+    }
+
+
 //Crear, borrar y editar posts
 
 //Funciones para creacion de formularios (get)
     public function create(){
+      $this->middleware('auth');
       $categories = Category::orderBy('name')->get();
       return view('posts/createPost', compact('categories'));
     }
@@ -59,7 +72,7 @@ class PostsController extends Controller
       $post-> paragraph = $form['paragraph'];
       //$post-> category_id = $form['category_id'];
       //$post-> user_id = Auth::user()->id;
-      $post-> user_id = 11;
+      $post-> user_id = Auth::id();
       $post->save();
       $category = $form['category_id'];
       //dd($category);
@@ -73,7 +86,8 @@ class PostsController extends Controller
     $postToDelete = Post::find($id);
     $postToDelete->delete();
 
-    return redirect()->route('allPost');
+
+    return redirect()->back();
 }
 
 

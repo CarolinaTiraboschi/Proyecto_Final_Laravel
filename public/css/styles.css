@@ -257,14 +257,15 @@ body{
 
 .profile_interests_section{
 	margin-bottom:30px;
-	box-sizing: border-box;
 }
 
 .profile_interests_pastillas{
+  display: inline-grid;
 	margin-top: 15px;
 }
 
  .profile_interests_pastillas .interest{
+	 display:grid;
 	 background-color: white;
 	 color:#2c7997;
 	 padding: 5px 10px;
@@ -272,10 +273,12 @@ body{
 	 border-width: 1px;
 	 border-color: #2c7997;
 	 font-size: 12px;
+	 border-radius: 10px;
  }
 
  .category_section{
 	 box-sizing: border-box;
+
  }
 
  /*CSS de posts*/
@@ -290,8 +293,9 @@ font-family: 'Noto Serif', serif;
 margin-top: 15px;
 margin-bottom: 15px;
 text-align:justify;
-display: flex;
+display:flex;
 }
+
 
 
  /*Empieza CSS de Footer*/
