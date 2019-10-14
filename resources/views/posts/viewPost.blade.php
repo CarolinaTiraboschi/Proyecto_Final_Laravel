@@ -21,7 +21,7 @@
   <h5 style=font-style:italic> Una historia de {{$theUser->username}}</h5>
 
 <div class="card-body posts_container"  style="display:block">
-  <p class="card-text">{{ $post->paragraph }}</p>
+  <p class="card-text paragraph-body">{{ $post->paragraph }}</p>
   <br>
 
   <a href="/allPost/{{$theUser->id}}">Ver todos los escritos de {{$theUser->username}}</a>
@@ -48,7 +48,10 @@
       @endphp
       <div class="card posts_container">
       <div class="card-text">
-        <div class="card-header" style="font-weight:bold;">  <a href="/profile/{{$user->id}}">{{$user->username}}</a></div>
+        <div class="card-header" style="font-weight:bold;">  <a href="/profile/{{$user->id}}">
+          <img src= '/storage/avatars/{{$user->avatar}}' width="40" style="border-radius: 50%; background-color: #ffffff; padding: 1px;">
+          {{$user->username}}
+        </a></div>
         <div class="card-body">
           <p class="card-text">{{$comment->paragraph}}</p>
 

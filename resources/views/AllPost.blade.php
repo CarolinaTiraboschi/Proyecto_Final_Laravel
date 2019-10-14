@@ -6,8 +6,8 @@
 @endphp
 @section('pageTitle', 'Todos los post de ' . $user)
 
-
 @section('mainContent')
+
 <br>
 <div class="container profile_general">
 <div class="col-12 profile_username">
@@ -17,10 +17,12 @@
 <div class= "row justify-content-center profile_posts_section">
   <div class="card posts_container">
   @foreach ($posts as $post)
+
     <div class="card-text">
       <div class="card-header" style="text-align:center; font-weight:bold;">{{$post->title}}</div> <br>
       <div class="card-body">
         <p class="card-text">
+
           @php
             $text= "$post->paragraph";
              echo(str_limit($text, 500));
@@ -31,11 +33,17 @@
           <form action="/viewPost/{{$post->id}}/delete" method="post">
             @csrf
               {{ method_field('delete')}}
-              <input type="submit" class="btn btn-danger" style= "margin-right:10px" value="Eliminar Post"></input>
+              <input type="submit" class="btn btn-danger" onclick="return alerta()" style= "margin-right:10px" value="Eliminar Post"></input>
           </form>
+            <a href="/edit/{{$post->id}}" class="btn btn-success" style= "margin-right:10px">Editar post</a>
 
         @endif
       </div>
+      <script>
+      function alerta() {
+      return confirm("Seguro que desea borrar{{$post->title}} ?");
+      }
+      </script>
 
   <div class="row category_section">
           @foreach ($post->categories as $category)

@@ -2,7 +2,6 @@
 @section('pageTitle', 'Register')
 
 @section('mainContent')
-@extends('layouts.app')
 <div class="container">
   <body class= "galaxy">
     <div class="container" style="margin-top:30px; margin-bottom: 30px;">

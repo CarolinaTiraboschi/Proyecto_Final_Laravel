@@ -8,10 +8,16 @@
 
 		<div class="collapse navbar-collapse" id="myOwnNav">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="/profile/{{Auth::id()}};">Perfil</a></li>
+				<li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="/faq">F.A.Q.</a></li>
-				<li class="nav-item dropdown">
+
+				@auth
+					<li class="nav-item"><a class="nav-link" href="/allPost/{{Auth::id()}}">Mis Escritos</a></li>
+					<li class="nav-item"><a class="nav-link" href="/profile/{{Auth::id()}};">Perfil</a></li>
+
+
+				@endauth
+				<!--<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropNavBar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Escritos
 					</a>
@@ -23,7 +29,7 @@
 						<a class="dropdown-item" href="/movies/actors">Actors by movie</a>
 					</div>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/genres">Genres & Movies</a></li>
+				<li class="nav-item"><a class="nav-link" href="/genres">Genres & Movies</a></li> -->
 			</ul>
 
 			<ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
@@ -31,11 +37,12 @@
 					<li class="nav-item"><a class="nav-link" href="/register">Registrarse</a></li>
 					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
 				@else
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropNavBar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img src="/images/user-default.png" width="40" style="border-radius: 50%; background-color: #ffffff; padding: 5px;">
-							Hola {{ Auth::user()->username }}
-						</a>
+					<img src= '/storage/avatars/{{Auth::user()->avatar}}' width="40" style="border-radius: 50%; background-color: #ffffff; padding: 1px;">
+							<li class="nav-item" style="color:rgb(198, 197, 197); margin-left:4px;">	Hola, {{ Auth::user()->username }}</li>
+							<form action="/logout" method="post">
+							@csrf
+							<li class="nav-item"><button type="submit" class="dropdown-item" style="color:rgb(198, 197, 197)">Logout</button></li>
+						</form>
 						<div class="dropdown-menu" aria-labelledby="dropNavBar">
 							<a class="dropdown-item" href="/profile">Mi perfil</a>
 							<form action="/logout" method="post">

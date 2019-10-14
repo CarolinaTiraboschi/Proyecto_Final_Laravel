@@ -72,6 +72,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
       $request=request();
+
       $imagen = $request->file('avatar');// El value del atributo name del input file
 
       if ($imagen) {
@@ -80,6 +81,10 @@ class RegisterController extends Controller
 
         // Subo el archivo en la carpeta elegida
         $imagen->storePubliclyAs("public/avatars", $imagenFinal);}
+
+        else {
+        $imagenFinal = "Default.png";
+        }
 
         return User::create([
             'username' => $data['username'],

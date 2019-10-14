@@ -5,17 +5,48 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
+use Auth;
 class UserController extends Controller
 {
 
   public function profile($id){
     $theUser= User::find($id);
-    return view('profile', compact('theUser'));
+    $posts= Post::where('user_id',$id)->get();
+    $postCount= $posts->count();
+
+    $isUser=false;
+    $isFollowee=false;
+
+    if(Auth::user()->id == $theUser->id){
+      $isUser=true;
+    }
+
+    foreach (Auth::user()->followees as $followee) {
+      	if ($followee->id == $theUser->id ){
+          $isFollowee= true;
+        }
+    }
+    $followerCount= User::find($id)->followers->count();
+    $followeeCount= User::find($id)->followees->count();
+    return view('profile', compact('theUser', 'posts', 'isUser', 'isFollowee', 'postCount', 'followerCount', 'followeeCount'));
   }
 
-  public function friends ($id) {
+  public function showFriends($id){
 
   }
+
+
+
+  public function getAddFriend($id)
+  {
+    $user = User::find($id);
+    Auth::user()->addFriend($user);
+
+    return redirect()->back();
+  }
+
+
+
 
 
 

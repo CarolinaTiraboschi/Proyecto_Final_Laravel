@@ -43,10 +43,13 @@ class PostsController extends Controller
     }
 
     public function edit($id){
-      $postToEdit = Post::find($id);
+      $postToUpdate = Post::find($id);
+      if (Auth::id()!=$postToUpdate->user_id){
+        return redirect()->route('home');
+      }
       $categories = Category::orderBy('name')->get();
 
-      return view('posts.editPost', compact('postToEdit', 'categories'));
+      return view('posts.editPost', compact('postToUpdate', 'categories'));
     }
 
 
@@ -81,6 +84,18 @@ class PostsController extends Controller
       return redirect()->route('home');
 
 }
+
+public function updatePost($id, Request $request){
+
+		$postToUpdate = Post::find($id);
+		$postToUpdate-> title = $request['title'];
+		$postToUpdate-> paragraph = $request['paragraph'];
+		$postToUpdate->save();
+    $category = $request['category_id'];
+      $postToUpdate->categories()->sync($category);
+		return redirect()->route('allPost',['id' => $id]);
+	}
+
 
   public function delete($id){
     $postToDelete = Post::find($id);

@@ -223,6 +223,19 @@ body{
 	 margin: auto;
  }
 
+
+ .image_container_profile img{
+width: 250px;
+height: 250px;
+border-radius: 50%;
+margin: 10px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+background-color: #ffffff;
+
+ }
+
  .profile_username h3{
 	 background-color: #333647;
 	 padding-top: 10px;
@@ -231,6 +244,19 @@ body{
 	 margin-bottom: 20px;
 	 border-radius: 10px;
 	/* background-image:  url("/images/Background.jpg");
+	 background-position: bottom;
+	 background-repeat:no-repeat;
+	 background-size: cover;*/
+ }
+
+ .profile_username h2{
+	 background-color: rgb(29, 177, 141);
+	 padding-top: 10px;
+	 padding-bottom: 10px;
+	 color: white;
+	 margin-bottom: 20px;
+	 border-radius: 10px;
+	 background-image:  url("/images/Background.jpg");
 	 background-position: bottom;
 	 background-repeat:no-repeat;
 	 background-size: cover;*/
@@ -294,6 +320,12 @@ margin-top: 15px;
 margin-bottom: 15px;
 text-align:justify;
 display:flex;
+}
+
+.paragraph-body{
+	white-space: pre-line;
+	text-align: justify;
+	display: block;
 }
 
 

@@ -13,11 +13,11 @@ use App\Post;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/index', function () {
-    return view('index');
+    return view('home');
 });
 
 //Route::get('users/register', function () {
@@ -32,7 +32,7 @@ Route::get('/profile', function () {
 
 Route::get('/profile/{id}', 'UserController@profile');
 
-Route::get('/allPost/{id}', 'PostsController@posts');
+Route::get('/allPost/{id}', 'PostsController@posts')->name('allPost');;
 
 Route::get('/viewPost/{id}', 'PostsController@view');
 Route::delete('/viewPost/{id}/delete', 'PostsController@delete');
@@ -40,7 +40,11 @@ Route::post('/viewPost/{id}', 'CommentController@newComment')->middleware('auth'
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@showPosts')->name('home');
 
 Route::get('/createPost', 'PostsController@create')->middleware('auth');
 Route::post('/createPost', 'PostsController@newPost')->middleware('auth');
+
+Route::get('/addFriend/{id}', 'UserController@getAddFriend')->middleware('auth');
+Route::get('/edit/{id}', 'PostsController@edit');
+Route::put('/edit/{id}', 'PostsController@updatePost');

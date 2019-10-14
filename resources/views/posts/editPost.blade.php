@@ -3,7 +3,7 @@
 
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/jquery.multi-select.js"></script>
-@section('pageTitle', 'Publica una nueva historia')
+@section('pageTitle', 'Edita tu historia')
 
 
 @section('mainContent')
@@ -11,7 +11,7 @@
 <br>
 <div class="container">
 <div class="col-12 profile_username">
-  <h3 style="text-align:center;">Publica tu historia</h3>
+  <h3 style="text-align:center;">Edita tu historia</h3>
 </div>
               <div class="col-md-12">
                 @if (count($errors))
@@ -27,21 +27,21 @@
                 <br>
                 @endif
                   <form method="post" action="">
-                      {{ csrf_field() }}
+
+                      @csrf
+                      {{ method_field('put') }}
+
                       <div class="form-group">
                         <h4>  <label for="name">Título</label></h4>
-                          <input type="text" class="form-control" name="title" placeholder="Título">
+                          <input type="text" class="form-control" name="title" value="{{old('title', $postToUpdate->title) }}">
                           @error ('title')
                             <i style="color: red;"> {{ $errors->first('title') }}</i>
                           @enderror
                       </div>
-                      <div class="invalid">
-                        <!-- Mensaje de error -->
-                      </div>
 
                       <div class="form-group">
                           <h4><label for="description">Cuerpo Principal</label></h4>
-                          <textarea class="form-control"  rows="10" name="paragraph" placeholder="Escribe aquí tu historia..."></textarea>
+                          <textarea class="form-control"  rows="10" name="paragraph">"{{old('paragraph', $postToUpdate->paragraph)}}"</textarea>
                           @error ('paragraph')
                             <i style="color: red;"> {{ $errors->first('paragraph') }}</i>
                           @enderror
@@ -60,16 +60,13 @@
                 </script>
               </div>
 
-                      <button type="submit" class="btn btn-primary">Publicar</button>
+                      <button type="submit" class="btn btn-primary">Guardar cambios</button>
                   </form>
 
 
               </div>
 
   </div>
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/PostValidate.js"></script>
 
 
   @endsection
